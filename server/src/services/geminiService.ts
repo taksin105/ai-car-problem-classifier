@@ -30,8 +30,10 @@ const responseSchema = {
     },
     recommendation: { type: SchemaType.STRING },
     requiresImmediateAttention: { type: SchemaType.BOOLEAN },
+    estimatedCost: { type: SchemaType.STRING },
+    estimatedRepairTime: { type: SchemaType.STRING },
   },
-  required: ['category', 'urgency', 'confidence', 'summary', 'symptoms', 'possibleCauses', 'followUpQuestions', 'recommendation', 'requiresImmediateAttention'],
+  required: ['category', 'urgency', 'confidence', 'summary', 'symptoms', 'possibleCauses', 'followUpQuestions', 'recommendation', 'requiresImmediateAttention', 'estimatedCost', 'estimatedRepairTime'],
 };
 
 /** Analyze a vehicle problem using Gemini AI */

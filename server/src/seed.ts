@@ -18,6 +18,8 @@ const demoData = [
     followUpQuestions: ['ไฟหน้ารถติดปกติหรือไม่?', 'เพิ่งเปลี่ยนแบตเตอรี่เมื่อไหร่?'],
     recommendation: 'แนะนำให้ตรวจสอบแบตเตอรี่และระบบสตาร์ทที่ศูนย์บริการ',
     requiresImmediateAttention: false,
+    estimatedCost: '฿2,200 - ฿3,800 (ค่าแบตเตอรี่ใหม่ + ค่าแรง)',
+    estimatedRepairTime: '45 นาที - 1 ชั่วโมง',
   },
   {
     customerName: 'วิภา รักดี',
@@ -35,6 +37,8 @@ const demoData = [
     followUpQuestions: ['เสียงเกิดขึ้นทุกครั้งที่เบรกหรือไม่?', 'มีไฟเตือนเบรกขึ้นบนหน้าปัดหรือไม่?'],
     recommendation: 'กรุณาหยุดใช้งานรถและนำรถเข้าตรวจสอบทันที เนื่องจากอาจเป็นปัญหาด้านความปลอดภัย',
     requiresImmediateAttention: true,
+    estimatedCost: '฿1,800 - ฿3,500 (ผ้าเบรกคู่หน้า + เจียรจาน + ค่าแรง)',
+    estimatedRepairTime: '1.5 - 2 ชั่วโมง',
   },
   {
     customerName: 'ประเสริฐ มั่งมี',
@@ -52,6 +56,8 @@ const demoData = [
     followUpQuestions: ['คอมเพรสเซอร์แอร์ทำงานหรือไม่?', 'เคยเติมน้ำยาแอร์เมื่อไหร่?'],
     recommendation: 'แนะนำให้นัดหมายเข้าตรวจสอบระบบแอร์ สามารถนัดตามความสะดวก',
     requiresImmediateAttention: false,
+    estimatedCost: '฿900 - ฿2,200 (เติมน้ำยา R134a + เช็ครอยรั่ว)',
+    estimatedRepairTime: '1 - 2 ชั่วโมง',
   },
   {
     customerName: 'นภัส วงศ์สว่าง',
@@ -69,6 +75,8 @@ const demoData = [
     followUpQuestions: ['อาการสั่นเกิดที่พวงมาลัยหรือทั้งคัน?', 'เคยถ่วงล้อเมื่อไหร่?', 'มีเสียงผิดปกติร่วมด้วยหรือไม่?'],
     recommendation: 'แนะนำให้นำรถเข้าตรวจสอบเพื่อระบุสาเหตุที่แน่ชัด',
     requiresImmediateAttention: false,
+    estimatedCost: '฿600 - ฿2,500 (ถ่วงล้อ 4 ล้อ / ตั้งศูนย์ หรือเปลี่ยนยางแท่นเครื่อง)',
+    estimatedRepairTime: '2 - 3 ชั่วโมง',
   },
   {
     customerName: 'กัญญา ใจงาม',
@@ -86,6 +94,8 @@ const demoData = [
     followUpQuestions: ['ไฟเตือนกะพริบหรือติดค้าง?', 'รถมีอาการผิดปกติอื่นร่วมด้วยหรือไม่?', 'เพิ่งเติมน้ำมันมาหรือไม่?'],
     recommendation: 'แนะนำให้นำรถเข้าตรวจสอบเพื่ออ่านรหัสข้อผิดพลาดด้วยเครื่องสแกน',
     requiresImmediateAttention: false,
+    estimatedCost: '฿500 - ฿1,800 (ค่าสแกน OBD-II / เปลี่ยนเซนเซอร์)',
+    estimatedRepairTime: '1 ชั่วโมง',
   },
 ];
 

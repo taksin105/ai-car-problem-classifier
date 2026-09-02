@@ -46,6 +46,16 @@ export async function triggerN8nWebhook(serviceCase: ServiceCase): Promise<boole
                 inline: true,
               },
               {
+                name: '💰 Estimated Cost',
+                value: serviceCase.estimatedCost || '฿1,000 - ฿3,000 (ประเมินหน้างาน)',
+                inline: true,
+              },
+              {
+                name: '⏱️ Estimated Repair Time',
+                value: serviceCase.estimatedRepairTime || '1 - 2 ชั่วโมง',
+                inline: true,
+              },
+              {
                 name: '📝 Problem Reported',
                 value: serviceCase.problemDescription,
               },
@@ -88,6 +98,8 @@ export async function triggerN8nWebhook(serviceCase: ServiceCase): Promise<boole
         followUpQuestions: serviceCase.followUpQuestions,
         recommendation: serviceCase.recommendation,
         requiresImmediateAttention: serviceCase.requiresImmediateAttention,
+        estimatedCost: serviceCase.estimatedCost,
+        estimatedRepairTime: serviceCase.estimatedRepairTime,
         status: serviceCase.status,
         createdAt: serviceCase.createdAt,
       };

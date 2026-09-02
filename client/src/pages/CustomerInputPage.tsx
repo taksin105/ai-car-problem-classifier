@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Send, Car, User, Phone, Calendar, Gauge, Zap } from 'lucide-react';
+import { Send, Car, User, Phone, Calendar, Gauge, Zap, Coins, Clock } from 'lucide-react';
 import { Spinner } from '../components/ui/Spinner';
 import { Toast } from '../components/ui/Toast';
 import { Badge } from '../components/ui/Badge';
@@ -192,6 +192,47 @@ export function CustomerInputPage() {
                   <span className="text-xl font-extrabold text-blue-600">
                     {Math.round(result.confidence * 100)}%
                   </span>
+                </div>
+              </div>
+            </div>
+
+            {/* AI Cost & Repair Time Estimation (NEW FEATURE) */}
+            <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-sky-500/5 rounded-2xl border border-emerald-500/20 shadow-xs p-5">
+              <div className="flex items-center justify-between mb-3.5">
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 bg-emerald-600 text-white rounded-lg shadow-2xs">
+                    <Coins className="h-4 w-4" />
+                  </div>
+                  <h2 className="text-xs font-bold uppercase tracking-wider text-emerald-950">
+                    💰 AI Cost & Repair Time Estimation (ประมาณการราคา & เวลาซ่อม)
+                  </h2>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                  AI Quoting Tool
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-white/90 border border-emerald-200/80 shadow-2xs">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs font-semibold mb-1">
+                    <Coins className="h-3.5 w-3.5 text-emerald-600" />
+                    <span>ประมาณการค่าใช้จ่ายเบื้องต้น (Est. Cost)</span>
+                  </div>
+                  <p className="text-lg font-extrabold text-emerald-700">
+                    {result.estimatedCost || '฿1,200 - ฿3,500 (ค่าอะไหล่ + ค่าแรง)'}
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">*ราคาอาจปรับเปลี่ยนตามยี่ห้ออะไหล่ที่ลูกค้าเลือก</p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/90 border border-sky-200/80 shadow-2xs">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs font-semibold mb-1">
+                    <Clock className="h-3.5 w-3.5 text-sky-600" />
+                    <span>ระยะเวลาดำเนินการโดยประมาณ (Est. Time)</span>
+                  </div>
+                  <p className="text-lg font-extrabold text-sky-700">
+                    {result.estimatedRepairTime || '1.5 - 2 ชั่วโมง'}
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">*ขึ้นอยู่กับความพร้อมของช่องซ่อมและอะไหล่</p>
                 </div>
               </div>
             </div>

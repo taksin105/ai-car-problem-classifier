@@ -21,6 +21,8 @@ Your tasks:
 7. Generate 2-4 follow-up questions in Thai that would help the Service Advisor gather more information
 8. Create a recommendation in Thai for the Service Advisor
 9. Create a brief summary in Thai for the Service Advisor
+10. Estimate a realistic cost range in Thai Baht (฿) with brief breakdown in Thai, e.g. "฿1,500 - ฿3,200 (ค่าอะไหล่ผ้าเบรก + ค่าแรง)" or "฿800 - ฿1,500 (ค่าน้ำยาแอร์ + ตรวจเช็ครอยรั่ว)"
+11. Estimate realistic repair/service duration in Thai, e.g. "1 - 2 ชั่วโมง", "3 - 5 ชั่วโมง", หรือ "1 - 2 วันทำการ (กรณีรอเบิกอะไหล่)"
 
 HIGH urgency indicators:
 - Brake failure or severe brake abnormality
@@ -38,6 +40,7 @@ If the problem description is too vague or insufficient:
 - Set confidence to a low value (< 0.5)
 - Generate more follow-up questions
 - Indicate in the summary that more information is needed
+- Provide a general inspection cost estimate e.g. "฿500 - ฿1,000 (ค่าตรวจเช็คเบื้องต้น)"
 
 Respond with ONLY valid JSON matching the required schema. No additional text.`;
 
@@ -63,4 +66,6 @@ Provide your analysis as a JSON object with these fields:
 - possibleCauses (array of strings): possible causes
 - followUpQuestions (array of strings): follow-up questions in Thai
 - recommendation (string): recommendation in Thai
-- requiresImmediateAttention (boolean): true only for HIGH urgency`;
+- requiresImmediateAttention (boolean): true only for HIGH urgency
+- estimatedCost (string): estimated price range in Thai Baht with breakdown, e.g. "฿1,500 - ฿3,200 (ค่าอะไหล่ + ค่าแรง)"
+- estimatedRepairTime (string): estimated repair duration in Thai, e.g. "1.5 - 2 ชั่วโมง"`;

@@ -34,6 +34,8 @@ export interface AIAnalysis {
   followUpQuestions: string[];
   recommendation: string;
   requiresImmediateAttention: boolean;
+  estimatedCost?: string;
+  estimatedRepairTime?: string;
 }
 
 export interface ServiceCase extends CustomerInput, AIAnalysis {
@@ -41,6 +43,8 @@ export interface ServiceCase extends CustomerInput, AIAnalysis {
   status: CaseStatus;
   createdAt: string;
   updatedAt: string;
+  estimatedCost?: string;
+  estimatedRepairTime?: string;
 }
 
 export interface AutomationLog {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Clock, Printer, Car } from 'lucide-react';
+import { ArrowLeft, Clock, Printer, Car, Coins } from 'lucide-react';
 import { Badge } from '../components/ui/Badge';
 import { Spinner } from '../components/ui/Spinner';
 import { Toast } from '../components/ui/Toast';
@@ -192,6 +192,45 @@ export function CaseDetailPage() {
               </div>
             </div>
 
+            {/* AI Cost & Repair Time Estimation (NEW) */}
+            <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-sky-500/5 rounded-2xl border border-emerald-500/20 p-5">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 bg-emerald-600 text-white rounded-lg shadow-2xs">
+                    <Coins className="h-4 w-4" />
+                  </div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-950">
+                    AI Cost & Repair Time Estimation
+                  </h3>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                  Quotation Preview
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="p-3.5 rounded-xl bg-white/90 border border-emerald-200/80">
+                  <div className="flex items-center gap-1.5 text-slate-500 text-xs font-semibold mb-1">
+                    <Coins className="h-3.5 w-3.5 text-emerald-600" />
+                    <span>ประมาณการค่าใช้จ่าย (Est. Cost)</span>
+                  </div>
+                  <p className="text-base font-extrabold text-emerald-700">
+                    {caseData.estimatedCost || '฿1,200 - ฿3,500 (ค่าอะไหล่ + ค่าแรง)'}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/90 border border-sky-200/80">
+                  <div className="flex items-center gap-1.5 text-slate-500 text-xs font-semibold mb-1">
+                    <Clock className="h-3.5 w-3.5 text-sky-600" />
+                    <span>ระยะเวลาดำเนินการ (Est. Time)</span>
+                  </div>
+                  <p className="text-base font-extrabold text-sky-700">
+                    {caseData.estimatedRepairTime || '1.5 - 2 ชั่วโมง'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Summary</h3>
               <p className="text-xs font-medium text-slate-700 leading-relaxed">{caseData.summary}</p>
@@ -239,6 +278,20 @@ export function CaseDetailPage() {
 
             {/* Print Only: Service Checklist & Signatures */}
             <div className="hidden print:block mt-8 pt-6 border-t border-gray-200">
+              <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-gray-50">
+                <h3 className="text-xs font-bold text-gray-900 uppercase mb-2">ประมาณการค่าใช้จ่าย & เวลาดำเนินการเบื้องต้น</h3>
+                <div className="grid grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <span className="text-gray-500">ประมาณการค่าใช้จ่าย:</span>
+                    <p className="font-bold text-gray-900">{caseData.estimatedCost || '฿1,200 - ฿3,500 (ค่าอะไหล่ + ค่าแรง)'}</p>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">ระยะเวลาดำเนินการ:</span>
+                    <p className="font-bold text-gray-900">{caseData.estimatedRepairTime || '1.5 - 2 ชั่วโมง'}</p>
+                  </div>
+                </div>
+              </div>
+
               <h3 className="text-sm font-bold text-gray-900 mb-3">Service Advisor Checklist</h3>
               <div className="grid grid-cols-2 gap-2 text-xs text-gray-700 mb-8">
                 <div className="flex items-center gap-2">
