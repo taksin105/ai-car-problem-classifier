@@ -10,6 +10,7 @@ export function Layout() {
     if (location.pathname === '/new-case') return 'Customer Intake & AI Triage';
     if (location.pathname.startsWith('/cases/')) return 'Case Investigation & Report';
     if (location.pathname === '/automation-logs') return 'Workflow & Automation Logs';
+    if (location.pathname === '/guide') return 'Operations Manual & User Guide';
     return 'AI Service Assistant';
   };
 
