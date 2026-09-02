@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, PlusCircle, Activity, BookOpen, Settings, Wrench, ShieldCheck, Sparkles } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, Activity, BookOpen, Settings, Wrench, ShieldCheck, Sparkles, Database } from 'lucide-react';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', badge: 'Live' },
   { to: '/new-case', icon: PlusCircle, label: 'New Case', highlight: true },
+  { to: '/search-knowledge', icon: Database, label: 'Search Knowledge' },
   { to: '/automation-logs', icon: Activity, label: 'Automation Logs' },
   { to: '/guide', icon: BookOpen, label: 'User Guide' },
   { to: '/settings', icon: Settings, label: 'Settings & Webhook' },

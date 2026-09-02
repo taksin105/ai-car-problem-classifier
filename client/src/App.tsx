@@ -6,6 +6,7 @@ import { CaseDetailPage } from './pages/CaseDetailPage';
 import { AutomationLogPage } from './pages/AutomationLogPage';
 import { UserGuidePage } from './pages/UserGuidePage';
 import { SettingsPage } from './pages/SettingsPage';
+import { SearchKnowledgePage } from './pages/SearchKnowledgePage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/new-case" element={<CustomerInputPage />} />
+          <Route path="/search-knowledge" element={<SearchKnowledgePage />} />
           <Route path="/cases/:id" element={<CaseDetailPage />} />
           <Route path="/automation-logs" element={<AutomationLogPage />} />
           <Route path="/guide" element={<UserGuidePage />} />

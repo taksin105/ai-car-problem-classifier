@@ -6,12 +6,14 @@ let runtimeWebhookUrl: string = config.n8nWebhookUrl;
 /** Get currently active webhook URL */
 export async function getWebhookUrl(): Promise<string> {
   try {
-    const doc = await db.collection('systemSettings').doc('webhook').get();
-    if (doc.exists) {
-      const data = doc.data();
-      if (data && typeof data.url === 'string') {
-        runtimeWebhookUrl = data.url;
-        return data.url;
+    if (db) {
+      const doc = await db.collection('systemSettings').doc('webhook').get();
+      if (doc.exists) {
+        const data = doc.data();
+        if (data && typeof data.url === 'string') {
+          runtimeWebhookUrl = data.url;
+          return data.url;
+        }
       }
     }
   } catch (err) {
@@ -27,10 +29,12 @@ export async function setWebhookUrl(newUrl: string): Promise<string> {
   config.n8nWebhookUrl = trimmedUrl;
 
   try {
-    await db.collection('systemSettings').doc('webhook').set({
-      url: trimmedUrl,
-      updatedAt: new Date().toISOString(),
-    });
+    if (db) {
+      await db.collection('systemSettings').doc('webhook').set({
+        url: trimmedUrl,
+        updatedAt: new Date().toISOString(),
+      });
+    }
   } catch (err) {
     console.warn('Could not persist webhook to Firestore:', err);
   }
