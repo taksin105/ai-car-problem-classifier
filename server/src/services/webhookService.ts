@@ -1,15 +1,16 @@
-import { config } from '../config/environment';
+import { getWebhookUrl } from './settingsService';
 import { ServiceCase } from '../types';
 
 /** Send case data to n8n or Discord webhook */
 export async function triggerN8nWebhook(serviceCase: ServiceCase): Promise<boolean> {
-  if (!config.n8nWebhookUrl) {
-    console.warn('N8N_WEBHOOK_URL not configured. Skipping webhook.');
+  const webhookUrl = await getWebhookUrl();
+  if (!webhookUrl) {
+    console.warn('Webhook URL not configured. Skipping webhook.');
     return false;
   }
 
   try {
-    const isDiscord = config.n8nWebhookUrl.includes('discord.com/api/webhooks');
+    const isDiscord = webhookUrl.includes('discord.com/api/webhooks');
 
     let bodyPayload: any;
 
@@ -105,7 +106,7 @@ export async function triggerN8nWebhook(serviceCase: ServiceCase): Promise<boole
       };
     }
 
-    const response = await fetch(config.n8nWebhookUrl, {
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -11,6 +11,7 @@ export function Layout() {
     if (location.pathname.startsWith('/cases/')) return 'Case Investigation & Report';
     if (location.pathname === '/automation-logs') return 'Workflow & Automation Logs';
     if (location.pathname === '/guide') return 'Operations Manual & User Guide';
+    if (location.pathname === '/settings') return 'System & Webhook Settings';
     return 'AI Service Assistant';
   };
 
@@ -26,11 +27,15 @@ export function Layout() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Live Webhook Status */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 text-[11px] font-semibold">
+            {/* Live Webhook Status Pill (Clickable) */}
+            <a
+              href="/settings"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200/80 text-[11px] font-semibold transition-colors cursor-pointer"
+              title="คลิกเพื่อกำหนดหรือเปลี่ยน Discord Webhook URL"
+            >
               <Radio className="h-3 w-3 text-emerald-600 animate-pulse" />
               <span>Discord Alert: Connected</span>
-            </div>
+            </a>
 
             <div className="h-4 w-[1px] bg-slate-200" />
 

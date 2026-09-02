@@ -53,3 +53,24 @@ export async function getAutomationLogs(caseId?: string): Promise<AutomationLog[
   if (!data.success || !data.data) throw new Error(data.error || 'Failed to fetch logs');
   return data.data;
 }
+
+/** Get system settings (Webhook) */
+export async function getSettings(): Promise<{ webhookUrl: string; isConfigured: boolean; provider: string }> {
+  const { data } = await api.get('/settings');
+  if (!data.success || !data.data) throw new Error(data.error || 'Failed to fetch settings');
+  return data.data;
+}
+
+/** Update system settings */
+export async function updateSettings(webhookUrl: string): Promise<{ webhookUrl: string; isConfigured: boolean }> {
+  const { data } = await api.put('/settings', { webhookUrl });
+  if (!data.success || !data.data) throw new Error(data.error || 'Failed to update settings');
+  return data.data;
+}
+
+/** Test sending webhook to Discord */
+export async function testWebhook(webhookUrl?: string): Promise<{ success: boolean; message: string }> {
+  const { data } = await api.post('/settings/test', { webhookUrl });
+  if (!data.success) throw new Error(data.error || 'Failed to send test webhook');
+  return data;
+}

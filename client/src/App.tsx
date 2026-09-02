@@ -5,6 +5,7 @@ import { CustomerInputPage } from './pages/CustomerInputPage';
 import { CaseDetailPage } from './pages/CaseDetailPage';
 import { AutomationLogPage } from './pages/AutomationLogPage';
 import { UserGuidePage } from './pages/UserGuidePage';
+import { SettingsPage } from './pages/SettingsPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/cases/:id" element={<CaseDetailPage />} />
           <Route path="/automation-logs" element={<AutomationLogPage />} />
           <Route path="/guide" element={<UserGuidePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
